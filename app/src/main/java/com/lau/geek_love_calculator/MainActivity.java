@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView col1, col2, col3, score;
+    TextView col1, col2, col3, score, message;
     EditText name;
     Spinner list;
     ImageView logo;
@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         logo = (ImageView) findViewById(R.id.img);
 
+        message = (TextView) findViewById(R.id.message);
+
         table = (TableLayout) findViewById(R.id.table);
         table.setColumnStretchable(0, true);
         table.setColumnStretchable(1, true);
@@ -57,73 +59,76 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculate(View v){
+
         counter++;
         String full_name = name.getText().toString();
-        String language = list.getSelectedItem().toString();
-        Random r = new Random();
-        int love_percent = r.nextInt(101);
-        score.setText("" + love_percent + "%");
+        if (!full_name.isEmpty()){
+            message.setVisibility(View.GONE);
+            String language = list.getSelectedItem().toString();
+            Random r = new Random();
+            int love_percent = r.nextInt(101);
+            score.setText("" + love_percent + "%");
 
+            name.setText("");
 
-        //display percentage
-        logo.setTranslationX(1500);
-        switch (language){
-            case "Java":
-                logo.setImageResource(R.drawable.java);
-                break;
-            case "C++":
-                logo.setImageResource(R.drawable.c_plus);
-                break;
-            case "JavaScript":
-                logo.setImageResource(R.drawable.javascript);
-                break;
-            case "Python":
-                logo.setImageResource(R.drawable.python);
-                break;
-            case "C#":
-                logo.setImageResource(R.drawable.c_sharp);
-                break;
-            case "HTML":
-                logo.setImageResource(R.drawable.html);
-                break;
-            case "R":
-                logo.setImageResource(R.drawable.r);
-                break;
-            case "Swift":
-                logo.setImageResource(R.drawable.swift);
-                break;
-            case "PHP":
-                logo.setImageResource(R.drawable.php);
-                break;
-            default:
-                Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
+            //display percentage
+            logo.setTranslationX(1500);
+            switch (language){
+                case "Java":
+                    logo.setImageResource(R.drawable.java);
+                    break;
+                case "C++":
+                    logo.setImageResource(R.drawable.c_plus);
+                    break;
+                case "JavaScript":
+                    logo.setImageResource(R.drawable.javascript);
+                    break;
+                case "Python":
+                    logo.setImageResource(R.drawable.python);
+                    break;
+                case "C#":
+                    logo.setImageResource(R.drawable.c_sharp);
+                    break;
+                case "HTML":
+                    logo.setImageResource(R.drawable.html);
+                    break;
+                case "R":
+                    logo.setImageResource(R.drawable.r);
+                    break;
+                case "Swift":
+                    logo.setImageResource(R.drawable.swift);
+                    break;
+                case "PHP":
+                    logo.setImageResource(R.drawable.php);
+                    break;
+                default:
+                    Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
 
-        }
-        logo.animate().translationXBy(-1500).rotation(3600).setDuration(800);
+            }
+            logo.animate().translationXBy(-1500).rotation(3600).setDuration(800);
 
-        if (counter > 1){
             row = new TableRow(this);
             col1 = new TextView(this);
             col2= new TextView(this);
             col3 = new TextView(this);
             col1.setText(full_name);
-            col1.setTextSize(15);
+            col1.setTextSize(20);
             col1.setGravity(Gravity.CENTER);
             col1.setTypeface(null, Typeface.BOLD);
             col2.setText(language);
-            col2.setTextSize(15);
+            col2.setTextSize(20);
             col2.setGravity(Gravity.CENTER);
             col2.setTypeface(null, Typeface.BOLD);
-            col3.setText("" + love_percent);
-            col3.setTextSize(15);
+            col3.setText("" + love_percent + "%");
+            col3.setTextSize(20);
             col3.setGravity(Gravity.CENTER);
             col3.setTypeface(null, Typeface.BOLD);
             row.addView(col1);
             row.addView(col2);
             row.addView(col3);
             table.addView(row);
-        }
-
+        }else
+            message.setVisibility(View.VISIBLE);
 
     }
 }
