@@ -61,7 +61,7 @@
     <TableLayout
         android:id="@+id/table"
         android:layout_width="411dp"
-        android:layout_height="285dp"
+        android:layout_height="265dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -159,7 +159,7 @@
         app:backgroundTint="#E8276E"
         app:layout_constraintBottom_toBottomOf="@+id/table"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.418" />

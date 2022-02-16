@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
         score = (TextView) findViewById(R.id.score);
 
-        logo = (ImageView) findViewById(R.id.img);
 
         message = (TextView) findViewById(R.id.message);
 
@@ -60,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculate(View v){
 
+        logo = (ImageView) findViewById(R.id.img);
+        logo.setRotation(0);
         counter++;
         String full_name = name.getText().toString();
         if (!full_name.isEmpty()){
