@@ -2,6 +2,7 @@ package com.lau.geek_love_calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -18,7 +19,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView col1, col2, col3;
+    TextView col1, col2, col3, score;
     EditText name;
     Spinner list;
     ImageView logo;
@@ -43,13 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
         name =(EditText)findViewById(R.id.name);
 
+        score = (TextView) findViewById(R.id.score);
+
         logo = (ImageView) findViewById(R.id.img);
 
-//        table = (TableLayout) findViewById(R.id.table);
-//        table.setColumnStretchable(0, true);
-//        table.setColumnStretchable(1, true);
-//        table.setColumnStretchable(2, true);
-//        table.setColumnStretchable(3, true);
+        table = (TableLayout) findViewById(R.id.table);
+        table.setColumnStretchable(0, true);
+        table.setColumnStretchable(1, true);
+        table.setColumnStretchable(2, true);
+        table.setColumnStretchable(3, true);
 
     }
 
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         String language = list.getSelectedItem().toString();
         Random r = new Random();
         int love_percent = r.nextInt(101);
+        score.setText("" + love_percent + "%");
+
 
         //display percentage
         logo.setTranslationX(1500);
@@ -96,21 +101,28 @@ public class MainActivity extends AppCompatActivity {
         }
         logo.animate().translationXBy(-1500).rotation(3600).setDuration(800);
 
-//        if (counter > 1){
-//            row = new TableRow(this);
-//            col1 = new TextView(this);
-//            col2= new TextView(this);
-//            col3 = new TextView(this);
-//            col1.setText(full_name);
-//            col1.setTextSize(15);
-//            col1.setGravity(Gravity.CENTER);
-//            col2.setText(language);
-//            col2.setTextSize(15);
-//            col2.setGravity(Gravity.CENTER);
-//            col3.setText("" + love_percent);
-//            col3.setTextSize(15);
-//            col3.setGravity(Gravity.CENTER);
-//        }
+        if (counter > 1){
+            row = new TableRow(this);
+            col1 = new TextView(this);
+            col2= new TextView(this);
+            col3 = new TextView(this);
+            col1.setText(full_name);
+            col1.setTextSize(15);
+            col1.setGravity(Gravity.CENTER);
+            col1.setTypeface(null, Typeface.BOLD);
+            col2.setText(language);
+            col2.setTextSize(15);
+            col2.setGravity(Gravity.CENTER);
+            col2.setTypeface(null, Typeface.BOLD);
+            col3.setText("" + love_percent);
+            col3.setTextSize(15);
+            col3.setGravity(Gravity.CENTER);
+            col3.setTypeface(null, Typeface.BOLD);
+            row.addView(col1);
+            row.addView(col2);
+            row.addView(col3);
+            table.addView(row);
+        }
 
 
     }

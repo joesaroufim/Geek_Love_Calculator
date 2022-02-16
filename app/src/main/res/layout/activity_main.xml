@@ -9,65 +9,46 @@
     <EditText
         android:id="@+id/name"
         android:layout_width="189dp"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
+        android:background="#FCFCFD"
         android:ems="10"
-        android:hint="Full Name"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="Your Full Name"
         android:inputType="textPersonName"
         android:textAlignment="center"
+        android:textColor="#090000"
+        android:textColorHint="#DCD5D5"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228" />
+        app:layout_constraintVertical_bias="0.244" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="158dp"
-        android:layout_height="42dp"
+        android:layout_height="45dp"
         android:layout_centerHorizontal="true"
+        android:scrollbarSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.073" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="calculate"
-        android:text="Calculate"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.257" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter your name and your favorite programming language"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.244" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FF2020"
-        android:text="Test your love between you and your favorite programming languages!!"
+        android:background="#3949AB"
+        android:text="Geek's Love Calculator"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -77,17 +58,50 @@
 
     <TableLayout
         android:id="@+id/table"
-        android:layout_width="409dp"
-        android:layout_height="339dp"
+        android:layout_width="411dp"
+        android:layout_height="285dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
         app:layout_constraintVertical_bias="1.0">
 
         <TableRow
+            android:id="@+id/row"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:background="#3949AB"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="#3949AB"
+                android:text="Full Name"
+                android:textAlignment="center"
+                android:textColor="#FDFDFD"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="#3949AB"
+                android:text="Language"
+                android:textAlignment="center"
+                android:textColor="#FBFAFA"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:background="#3949AB"
+                android:text="Score"
+                android:textAlignment="center"
+                android:textColor="#FBFAFA"
+                android:textSize="20sp"></TextView>
+
+        </TableRow>
 
 
     </TableLayout>
@@ -96,26 +110,56 @@
         android:id="@+id/img"
         android:layout_width="72dp"
         android:layout_height="83dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="@+id/table"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.387" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/score"
         android:layout_width="77dp"
         android:layout_height="63dp"
         android:gravity="center_vertical"
         android:hint="0 %"
         android:textAlignment="center"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/table"
         app:layout_constraintEnd_toStartOf="@+id/img"
-        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.405" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="139dp"
+        android:layout_height="131dp"
+        app:layout_constraintBottom_toBottomOf="@+id/table"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39"
+        app:srcCompat="@drawable/heart" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="calculate"
+        android:text="Calculate"
+        android:textAlignment="center"
+        android:textColor="#E6DCDC"
+        android:textStyle="bold"
+        app:backgroundTint="#E8276E"
+        app:layout_constraintBottom_toBottomOf="@+id/table"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.418" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
